@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 style="text-align: center ;"> Your Added Items</h1>
+
+<a href="/"> <button class="btn btn-outline-dark btn-lg float-right" type="success">Add new products</button> </a>
+</br>
+
+
+{% for prod in products.all %}
+
+<div class="card" style="width: 50rem;">
+    <!--<img class="card-img-top" src="https://images-na.ssl-images-amazon.com/images/I/61X8XNM3RGL._SX679_.jpg" alt="Card image cap"> -->
+    <div class="card-body">
+      <h5 class="card-title">{{prod.name}}</h5>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><b> Original Price: </b> {{prod.old_price}}</li>
+      <li class="list-group-item"><b>Current Price: </b> {{prod.new_price}}</li>
+      <li class="list-group-item"><b>Discount:</b>  {{prod.discount}}</li>
+    </ul>
+    <div class="card-body">
+      <a href="{{ prod.url }}" class="card-link">Buy Now</a>
+    </div>
+  </div>
+  <a href="confirm_delete/{{prod.id}}"> <button class="btn btn-danger" style="width:250px" >Delete</button> </a>
+</br>
+</br>
+</br>
+
+
+
+
+
+<!--<form method="POST" action={{ prod.url }} >
+    {% csrf_token %}
+    <div class="form-group">
+       <b> {{prod.name}}</b>
+        </br>
+       <b> Original Price: </b> {{prod.old_price}}
+        </br>
+        <b>Current Price: </b> {{prod.new_price}}
+        </br> 
+        <b>Discount:</b>  {{prod.discount}}
+        </br>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                <button type="submit" class="btn btn-success">Buy Now</button>
+            </div>
+            </div>
+        </div>
+        
+     </div>
+</form>   
+    
+    </br>
+        </br>  -->
+
+
+
+{% endfor %}
+
+
+{% endblock %}

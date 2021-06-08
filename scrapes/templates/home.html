@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<a href="products"><button class="btn btn-outline-secondary float-left" type="submit">Go to Product List</button> </a>
+<div class="col-6 mx-auto" style="text-align: center;">
+
+    <div class="text-center mt-5">
+<!--<image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSV9LOskjZ9zgSCUWE1UUwTf3WXalJyNEEYig&usqp=CAU" 
+class="image-fluid image-responsive" style="height:200px"></image>
+
+    </br>  -->
+
+<label> <b>Amazon Price Tracker </b> </label>
+</div>
+
+<form method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+      <input type="text" name="url" class="form-control" id="url" placeholder="Enter the link to your item">
+    </div>
+    <button type="submit" class="btn btn-success btn-block" style="background: black; color:white; cursor: pointer; text-transform: uppercase;">Add</button>
+</form>
+
+{% if err %}
+
+{{err}}
+
+{% endif %}
+
+
+</div>
+
+
+{% endblock %}
